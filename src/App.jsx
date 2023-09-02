@@ -1,6 +1,6 @@
 import './App.css'
-import Signup from './pages/auth/Signup'
-import Login from './pages/auth/login'
+
+import Signup from './pages/auth/Signup'; 
 
 function App() {
 
