@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { login } from "../../Redux/Slices/AuthSlice";
 function Login() {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [loginDetails, setLoginDetails] = useState({
         email: "",
@@ -19,11 +21,19 @@ function Login() {
         });
     }
 
-    function onSubmit() {
+    function resetLoginState() {
+        setLoginDetails({
+            email: "",
+            password: ""
+        });
+    }
+
+    async function onSubmit() {
         if(!loginDetails.email || !loginDetails.password) return;
         console.log("calling login", loginDetails);
-        const response = dispatch(login(loginDetails));
-        console.log(response);
+        const response = await dispatch(login(loginDetails));
+        if(response.payload) navigate("/");
+        else resetLoginState();
     }
 
     return (
@@ -40,6 +50,7 @@ function Login() {
                             autoComplete="one-time-code" 
                             type="text" 
                             placeholder="email ..."
+                            value={loginDetails.email}
                             className="input text-white input-bordered input-primary w-full max-w-xs" 
                         />
                     </div>
@@ -50,6 +61,7 @@ function Login() {
                             autoComplete="one-time-code"  
                             type="password" 
                             placeholder="password" 
+                            value={loginDetails.password}
                             className="input text-white input-bordered input-primary w-full max-w-xs" 
                         />
                     </div>
