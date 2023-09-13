@@ -12,7 +12,7 @@ function Dashboard() {
     return (
         <HomeLayout>
             <div className="min-h-[90vh] flex flex-col items-center justify-center gap-2">
-
+                
                 <div className="bg-yellow-500 w-full text-black text-center text-3xl py-4 font-bold hover:bg-yellow-400 transition-all ease-in-out duration-300">
                     Tickets Records <AiOutlineDownload className="cursor-pointer inline " onClick={() => toPDF()} />
                 </div>
