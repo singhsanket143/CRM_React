@@ -8,6 +8,7 @@ import { logout } from "../Redux/Slices/AuthSlice";
 function HomeLayout({ children }) {
 
     const authState = useSelector((state) => state.auth);
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
