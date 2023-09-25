@@ -39,6 +39,8 @@ function HomeLayout({ children }) {
 
                         <li><Link to="/dashboard">Dashboard</Link></li>
 
+                        {authState.isLoggedIn && <li><Link to="/ticket/create">Create Ticket</Link></li>}
+
                         {authState.role === "admin" && <li><Link to="/users">All Users</Link></li>}
 
                         <li className='absolute bottom-8 w-3/4'>
