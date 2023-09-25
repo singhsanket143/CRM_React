@@ -19,6 +19,7 @@ function useTickets() {
         }
         if(searchParams.get("status")) {
             // dispatch a filter action
+            console.log(searchParams.get("status"));
             dispatch(filterTickets({status: searchParams.get("status")}));
         } else {
             dispatch(resetTicketList());

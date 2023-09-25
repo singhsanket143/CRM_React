@@ -65,6 +65,7 @@ const ticketSlice = createSlice({
             console.log(action.payload);
             let status = action.payload.status.toLowerCase();
             if(status == "in progress") status = "inProgress";
+            if(status == "on hold") status = "onHold";
             state.ticketList = state.downloadedTickets.filter((ticket) => ticket.status === status);
         },
         resetTicketList: (state) => {
